@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/favicon.jpg" type="image/x-icon">
+    <title>CookPal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">
+            <img src="./images//Cookpal 1.png" alt="logo">
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#">Explore</a></li>
+                <li> <a href="#">Help</a></li>
+            </ul>
+            <img src="./images//Rohit_Photo.jpg" width="50px" alt="">
+        </div>
+    </nav>
+
+    <div class="banner-section">
+        <img src="./images/Banner.png" alt="">
+        
+    </div>
+
+    <header>
+        <!-- Add this code inside the <header> element -->
+        <div class="mobile-menu">
+            <button id="toggleDrawer">☰</button>
+        </div>
+        <div class="drawer" id="drawer">
+            <button class="close-drawer" id="closeDrawer">✕</button>
+            <div class="drawer-content">
+            <!-- Add any additional content for the drawer -->
+            </div>
+        </div>
+
+
+        <!-- 0-------000000000 -->
+  
+        <h3>Search For Recipes</h3>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search recipes...">
+            
+            <img src="./images/li_search.png" alt="">
+        </div>
+        <div class="filter-buttons">
+            <button class="all_receipe" data-filter="all">All Receipes</button>
+            <button class="veg_receipe"  data-filter="veg">Veg Receipe Only</button>
+            <button class="non_veg_receipe"  data-filter="non-veg">Non-Veg Non-Veg</button>
+        </div>
+        
+        
+    </header>
+    <main>
+        <div class="rating-filter">
+            <h2>Filter </h2>
+            <h4><i>Rating</i></h4>
+            <label>
+                <input type="checkbox" name="rating" value="above-4.5">
+                Rating Above 4.5
+            </label>
+            <br> <br>
+            <label>
+                <input type="checkbox" name="rating" value="below-4.0">
+                Rating Below 4.0
+            </label>
+        </div>
+
+        <div class="recipe-cards" id="recipeCards">
+            <!-- Recipe cards will be dynamically generated here -->
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

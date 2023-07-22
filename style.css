@@ -1,0 +1,230 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 10px;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 50px;
+
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+.nav-links{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+.nav-links ul{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links img{
+    border: 1px solid gray;
+    border-radius: 50%;
+    
+}
+
+/* ***********Banner section ******** */
+.banner-section{
+   
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+header {
+    padding: 20px;
+    background-color: #f0f0f0;
+    /* text-align: center; */
+}
+
+
+.search-bar {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.search-bar img{
+    background-color: green;
+    border: 1px solid black;
+    padding: 0 8px;
+}
+
+.search-bar input {
+    width:  calc(100% - 20px);
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    /* border: none; */
+}
+
+.filter-buttons {
+    margin: 20px 0;
+}
+
+.filter-buttons button {
+    padding: 20px 35px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-buttons button.all_receipe {
+    background-color: #EAAA00;
+    color: #fff;
+}
+.filter-buttons button.veg_receipe {
+    background-color: #C4D600;
+    color: #fff;
+}
+.filter-buttons button.non_veg_receipe {
+    background-color: #DC582A;
+    color: #fff;
+}
+
+.rating-filter {
+    margin-bottom: 20px;
+}
+
+.rating-filter label {
+    margin-right: 10px;
+}
+main{
+    display: flex;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recipe-card {
+    width: 320px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#recipeCards{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+}
+
+.recipe-card img {
+    width: 320px;
+    height: 200px;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.recipe-card h2 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.recipe-card p {
+    margin: 5px 0;
+}
+
+.recipe-card button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .main {
+        justify-content: flex-start;
+    }
+}
+
+/* Add any additional responsive styling as needed */
+
+
+/* Add this CSS code to styles.css for the mobile drawer */
+.mobile-menu {
+    display: none;
+  }
+  
+  .drawer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+  }
+  
+  .drawer-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 20px;
+    background-color: #fff;
+    overflow-y: auto;
+    width: 80%;
+  }
+  
+  .close-drawer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .search-bar {
+      display: none;
+    }
+  
+    .filter-buttons {
+      display: none;
+    }
+  
+    .rating-filter {
+      display: none;
+    }
+  
+    .mobile-menu {
+      display: block;
+    }
+  
+    .drawer {
+      display: block;
+    }
+  }
+
+  
+
+
+  /* **************************** */

@@ -119,8 +119,7 @@ const recipeData = [
         "isLiked": false,
         "rating": 4.9
     }
-    // The JSON array provided in the task
-    // (Copy the JSON array here)
+
   ];
   
   // Function to display the recipes on the page
@@ -135,34 +134,74 @@ const recipeData = [
       const image = document.createElement('img');
       image.src = recipe.imageSrc;
       image.alt = recipe.name;
+
+      const type = document.createElement('p');
+      type.textContent = ` ${recipe.type}`;
   
+      const recipeCardTittle = document.createElement('div');
+      recipeCardTittle.classList.add('recipe-cardTittle');
+
       const name = document.createElement('h2');
       name.textContent = recipe.name;
-  
-      const type = document.createElement('p');
-      type.textContent = `Type: ${recipe.type}`;
-  
-      const time = document.createElement('p');
-      time.textContent = `Time: ${recipe.time}`;
-  
+
       const rating = document.createElement('p');
-      rating.textContent = `Rating: ${recipe.rating}`;
+      rating.textContent = `⭐ ${recipe.rating}`;
+
+      const recipeCardTimeLike = document.createElement('div');
+      recipeCardTimeLike.classList.add('recipe-cardTime-like');
+
+
+      const time = document.createElement('h3');
+      time.textContent = `🕑 ${recipe.time}`;
+
+
+      
+    const likeButton = document.createElement('button');
+    likeButton.classList.add('like-button');
+    likeButton.setAttribute('data-liked', recipe.isLiked);
+    likeButton.innerHTML = `
+      <svg class="heart-icon" fill="${recipe.isLiked ? 'red' : 'none'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path d="M12 21.35l-1.45-1.32C5.4 16.36 2 13.29 2 9.5 2 7.43 3.43 6 5.5 6c1.74 0 3.41.81 4.5 2.09C11.09 6.81 12.76 6 14.5 6 16.57 6 18 7.43 18 9.5c0 3.79-3.4 6.86-8.55 10.54L12 21.35z" 
+        stroke="${recipe.isLiked ? 'red' : 'black'}" 
+        stroke-width="1.5"/>
+      </svg>
+    `;
+
+    likeButton.addEventListener('click', () => {
+      const isLiked = recipe.isLiked;
+      recipe.isLiked = !isLiked;
+      likeButton.setAttribute('data-liked', !isLiked);
+
+      const heartIcon = likeButton.querySelector('.heart-icon');
+      heartIcon.setAttribute('fill', recipe.isLiked ? 'red' : 'none');
+      heartIcon.setAttribute('stroke', recipe.isLiked ? 'red' : 'black');
+    });
+
+    const commentButton = document.createElement('button');
+    commentButton.classList.add('comment-button');
+    commentButton.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+    <path fill="none" stroke="#000" stroke-width="2" d="M21.25,17.742c0.551-0.551,0.993-1.435,0.993-2.491c0-1.057-0.442-1.94-0.993-2.491L19.5,10.5h-12L4.007,8.759C3.456,8.208,3.014,7.324,3.014,6.268c0-1.057,0.442-1.94,0.993-2.491L5.5,3.5l3,2.134h11l3-2.134L20.994,3.777c0.551,0.551,0.993,1.435,0.993,2.491c0,1.057-0.442,1.94-0.993,2.491l-1.486,1.741h-12L4.007,14.759c-0.551,0.551-0.993,1.435-0.993,2.491c0,1.057,0.442,1.94,0.993,2.491l1.486,1.741l3-2.134h11L21.25,17.742z"/>
+  </svg>
   
-      const likeButton = document.createElement('button');
-      likeButton.textContent = '♡'; // Heart icon
-      likeButton.classList.add(recipe.isLiked ? 'liked' : 'not-liked');
-      likeButton.addEventListener('click', () => {
-        recipe.isLiked = !recipe.isLiked;
-        likeButton.classList.toggle('liked', recipe.isLiked);
-        likeButton.classList.toggle('not-liked', !recipe.isLiked);
-      });
+    `;
+
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
+    buttonContainer.appendChild(likeButton);
+    buttonContainer.appendChild(commentButton);
+
   
+      recipeCardTittle.appendChild(name);
+      recipeCardTittle.appendChild(rating);
+
+      recipeCardTimeLike.appendChild(time);
+      recipeCardTimeLike.appendChild(buttonContainer);
+
       recipeCard.appendChild(image);
-      recipeCard.appendChild(name);
       recipeCard.appendChild(type);
-      recipeCard.appendChild(time);
-      recipeCard.appendChild(rating);
-      recipeCard.appendChild(likeButton);
+      recipeCard.appendChild(recipeCardTittle);
+      recipeCard.appendChild(recipeCardTimeLike)
   
       recipeCardsContainer.appendChild(recipeCard);
     });
@@ -174,7 +213,8 @@ const recipeData = [
 
 
 //   ------------------------
-// implemet search functionality
+//**********  implemet search functionality ********** */ 
+
 // Function to handle search input
 function handleSearchInput() {
     const searchInput = document.getElementById('searchInput');
